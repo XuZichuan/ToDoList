@@ -11,7 +11,7 @@ import (
 	"gorm.io/gorm/logger"
 	"gorm.io/gorm/schema"
 
-	"ToDoList/app/user/repo/db/model"
+	"ToDoList/app/task/repo/db/model"
 	"ToDoList/config"
 )
 
@@ -19,6 +19,7 @@ import (
 
 var dbInstance *gorm.DB
 
+// InitDB 连接数据库DB
 func InitDB() {
 	var gormLogger logger.Interface
 	if gin.Mode() == "debug" {
@@ -46,7 +47,7 @@ func InitDB() {
 
 	dbInstance = curDB
 	//自动创建表
-	dbInstance.Set(`gorm:table_options`, "charset=utf8mb4").AutoMigrate(&model.User{})
+	dbInstance.Set(`gorm:table_options`, "charset=utf8mb4").AutoMigrate(&model.Task{})
 }
 
 func getDSN() string {

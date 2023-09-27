@@ -2,7 +2,7 @@ package rpc
 
 import (
 	"ToDoList/consts"
-	"ToDoList/idl/pb"
+	"ToDoList/proto/pb"
 	"github.com/gin-gonic/gin"
 )
 

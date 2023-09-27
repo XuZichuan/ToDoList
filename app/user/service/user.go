@@ -1,13 +1,14 @@
 package service
 
 import (
-	"ToDoList/app/user/repo/db/dao"
-	"ToDoList/app/user/repo/db/model"
-	"ToDoList/consts"
-	"ToDoList/idl/pb"
 	"context"
 	"errors"
 	"sync"
+
+	"ToDoList/app/user/repo/db/dao"
+	"ToDoList/app/user/repo/db/model"
+	"ToDoList/consts"
+	"ToDoList/proto/pb"
 )
 
 var UserSvcIns *UserSvc
@@ -34,8 +35,8 @@ func (s *UserSvc) UserLogin(ctx context.Context, req *pb.UserRequest, resp *pb.U
 		resp.Code = consts.LoginFail
 		return errors.New("用户不存在")
 	}
-	// 数据库中拿到的密码，和用户输入的密码进行比对
-	if user.CheckPassWord(req.Password) {
+	// 数据库中拿到的密码，和用户输入的密码进行比对  【没问题则返回true】
+	if !user.CheckPassWord(req.Password) {
 		resp.Code = consts.LoginFail
 		return errors.New("密码错误")
 	}

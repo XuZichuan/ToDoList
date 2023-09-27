@@ -18,10 +18,16 @@ var (
 	//ETCD配置
 	EtcdHost string
 	EtcdPort string
-
+	//服务端口配置
 	UserServiceAddress string
 	TaskServiceAddress string
 	HttpServiceAddress string
+	//RabbitMQ配置
+	RabbitMQ         string
+	RabbitMQUser     string
+	RabbitMQPassWord string
+	RabbitMQHost     string
+	RabbitMQPort     string
 )
 
 //用于初始化读取配置文件、包含MYSQL 中间件等
@@ -33,6 +39,7 @@ func Init() {
 	LoadMySQLConfig(file)
 	LoadETCDConfig(file)
 	LoadServerConfig(file)
+	LoadRabbitMQConfig(file)
 }
 
 //从配置文件中把数据读到内存里。
@@ -50,8 +57,17 @@ func LoadETCDConfig(file *ini.File) {
 	EtcdHost = file.Section("etcd").Key("EtcdHost").String()
 	EtcdPort = file.Section("etcd").Key("EtcdPort").String()
 }
+
 func LoadServerConfig(file *ini.File) {
 	UserServiceAddress = file.Section("server").Key("UserServiceAddress").String()
 	TaskServiceAddress = file.Section("server").Key("TaskServiceAddress").String()
 	HttpServiceAddress = file.Section("server").Key("HttpServiceAddress").String()
+}
+
+func LoadRabbitMQConfig(file *ini.File) {
+	RabbitMQ = file.Section("rabbitmq").Key("RabbitMQ").String()
+	RabbitMQUser = file.Section("rabbitmq").Key("RabbitMQUser").String()
+	RabbitMQPassWord = file.Section("rabbitmq").Key("RabbitMQPassWord").String()
+	RabbitMQHost = file.Section("rabbitmq").Key("RabbitMQHost").String()
+	RabbitMQPort = file.Section("rabbitmq").Key("RabbitMQPort").String()
 }

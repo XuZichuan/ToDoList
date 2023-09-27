@@ -1,14 +1,14 @@
 package main
 
 import (
-	"ToDoList/app/user/repo/db/dao"
-	"ToDoList/app/user/service"
-	"ToDoList/config"
-	"ToDoList/idl/pb"
-
 	"fmt"
 	"go-micro.dev/v4"
 	"go-micro.dev/v4/registry"
+
+	"ToDoList/app/user/repo/db/dao"
+	"ToDoList/app/user/service"
+	"ToDoList/config"
+	"ToDoList/proto/pb"
 )
 
 //user微服务

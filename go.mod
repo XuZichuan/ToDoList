@@ -3,7 +3,10 @@ module ToDoList
 go 1.18
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.9.1
+	github.com/rabbitmq/amqp091-go v1.8.1
+	github.com/sirupsen/logrus v1.9.3
 	go-micro.dev/v4 v4.10.2
 	golang.org/x/crypto v0.13.0
 	google.golang.org/protobuf v1.31.0
@@ -66,6 +69,7 @@ require (
 	github.com/russross/blackfriday/v2 v2.0.1 // indirect
 	github.com/sergi/go-diff v1.1.0 // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
+	github.com/spf13/cast v1.5.1 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.11 // indirect
 	github.com/urfave/cli/v2 v2.3.0 // indirect
